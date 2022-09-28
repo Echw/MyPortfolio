@@ -17,6 +17,26 @@ const MainSection = () => {
           website!
         </Subtitle>
       </TitlesWrapper>
+      <NavWrapper>
+        <ul>
+          <li>
+            <span>About Me</span>
+            <div></div>
+          </li>
+          <li>
+            <span>Tech Stack</span>
+            <div></div>
+          </li>
+          <li>
+            <span>Projects</span>
+            <div></div>
+          </li>
+          <li>
+            <span>Contact Me</span>
+            <div></div>
+          </li>
+        </ul>
+      </NavWrapper>
     </Wrapper>
   );
 };
@@ -32,12 +52,19 @@ const BackgroundWrapper = styled.div`
     max-width: 100%;
   }
 `;
+
+const TitlesWrapper = styled.div`
+  position: absolute;
+  top: 25%;
+  left: 15%;
+
+  @media ${(props) => props.theme.devices.laptop} {
+  }
+`;
+
 const Title = styled.div`
   border: 3px solid ${(props) => props.theme.colors.violet};
   color: white;
-  position: absolute;
-  top: 15%;
-  left: 15%;
   padding: 24px 105px;
   h1 {
     font-weight: 300;
@@ -48,17 +75,52 @@ const Title = styled.div`
 `;
 const Subtitle = styled.div`
   font-weight: 300;
-  padding: 0;
+  padding: 2rem 0;
   margin: 0;
-  position: absolute;
-  top: 40%;
-  left: 15%;
   font-weight: 400;
   font-size: 1.5rem;
   text-align: center;
   color: #ffffff;
 `;
 
-const TitlesWrapper = styled.div`
-  position: absolute;
+const NavWrapper = styled.div`
+  position: fixed;
+  font-size: 2rem;
+  top: 25%;
+  right: 5%;
+  color: white;
+  font-size: 1rem;
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    color: transparent;
+    transition: 300ms;
+  }
+
+  li > div {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.2em solid ${(props) => props.theme.colors.pink};
+    border-radius: 50%;
+    margin: 1rem 0;
+    transition: 300ms;
+    :hover {
+      cursor: pointer;
+      background: ${(props) => props.theme.colors.pink};
+      transition: 300ms;
+    }
+    :hover ~ span {
+      color: white;
+      transition: 300ms;
+      cursor: pointer;
+    }
+  }
 `;
