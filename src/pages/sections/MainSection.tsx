@@ -1,6 +1,7 @@
 import React from 'react';
 import background from '../../assets/landingPage.jpg';
 import styled from 'styled-components';
+import Title from '../../components/Title';
 
 const MainSection = () => {
   return (
@@ -9,9 +10,9 @@ const MainSection = () => {
         <img src={background} alt="computer" />
       </BackgroundWrapper>
       <TitlesWrapper>
-        <Title>
-          <h1>Hello World!</h1>
-        </Title>
+        <TitleWrapper>
+          <Title value="Hello World!" />
+        </TitleWrapper>
         <Subtitle>
           My name is Ewa and I’m a Fronted Developer. <br /> Welcome to my
           website!
@@ -62,7 +63,7 @@ const TitlesWrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
+const TitleWrapper = styled.div`
   border: 3px solid ${(props) => props.theme.colors.violet};
   color: white;
   padding: 24px 105px;
@@ -73,6 +74,7 @@ const Title = styled.div`
     font-size: 3.5rem;
   }
 `;
+
 const Subtitle = styled.div`
   font-weight: 300;
   padding: 2rem 0;
@@ -80,7 +82,7 @@ const Subtitle = styled.div`
   font-weight: 400;
   font-size: 1.5rem;
   text-align: center;
-  color: #ffffff;
+  color: #dedede;
 `;
 
 const NavWrapper = styled.div`
@@ -103,6 +105,12 @@ const NavWrapper = styled.div`
     gap: 1rem;
     color: transparent;
     transition: 300ms;
+
+    :hover {
+      color: white;
+      transition: 300ms;
+      cursor: pointer;
+    }
   }
 
   li > div {
@@ -116,11 +124,6 @@ const NavWrapper = styled.div`
       cursor: pointer;
       background: ${(props) => props.theme.colors.pink};
       transition: 300ms;
-    }
-    :hover ~ span {
-      color: white;
-      transition: 300ms;
-      cursor: pointer;
     }
   }
 `;
